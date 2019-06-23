@@ -26,3 +26,4 @@ def chat():
     msg_out = json.loads(r.text)['output']
     states[state_id] = json.loads(r.text)['cs']
     return '{"text":"{}"}'.format(msg_out)
+app.run(port=80, host="0.0.0.0")
