@@ -6,7 +6,7 @@ Note: To run, the system needs the following environment variables to be set:
 MATTERMOST_BOT_URL=https://<mattermost server url>/api/v4
 MATTERMOST_BOT_LOGIN=<bot account username>
 MATTERMOST_BOT_PASSWORD=<bot account password>
-MATTERMOST_BOT_TEAM=<team name>
+MATTERMOST_BOT_TEAM=<team name> (Optional, omit to deploy on all teams)
 MATTERMOST_BOT_TOKEN=<bot token>
 CLEVERBOT_API_KEY=<cleverbot api key>
 ```
