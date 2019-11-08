@@ -3,7 +3,7 @@ from mmpy_bot.bot import listen_to
 
 
 @listen_to('^thanks?,? (you,? )?john!?$', re.IGNORECASE)  # "Thanks john", "Thanks, john!", "Thank you john" and more
-def thank_you(message):
+def thank_you(message,input): # Needs second argument for whatever reason too lazy to figure it out
     you_apostrophe_re_welcome = ['I am in no need of your human thanks!',
                                  'No, thank **you**! :blush:',
                                  'Much appreciated, fellow human!',
