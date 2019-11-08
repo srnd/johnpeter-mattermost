@@ -1,16 +1,15 @@
-import os
-import re
-import requests
-import json
+import os, re, requests, json
 from mmpy_bot.bot import listen_to, respond_to
+from mmpy_bot.utils import allow_only_direct_message, allowed_channels
 
 
-states = {} #initialize empty dict for states
+states = {}  # initialize empty dict for states
 API_KEY = os.getenv('CLEVERBOT_API_KEY')
 
 
 @listen_to('^john (.+)$', re.IGNORECASE)  # only reply to messages in public channels that start with "john"
 @respond_to('^(.+)$')  # also reply to all messages that ping john or are in DM
+@allowed_channels('random','john-dev')  # also works in DM
 def cleverbot(message,input):
     global states
     state_id = str(message.get_user_id()) + str(message.get_channel_name())  # each user/channel combo has unique state
