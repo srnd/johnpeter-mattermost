@@ -9,7 +9,7 @@ API_KEY = os.getenv('CLEVERBOT_API_KEY')
 
 @listen_to('^john (.+)$', re.IGNORECASE)  # only reply to messages in public channels that start with "john"
 @respond_to('^(.+)$')  # also reply to all messages that ping john or are in DM
-@allowed_channels('random','john-dev')  # also works in DM
+@allowed_channels('random', 'john-dev', 'off-topic', 'random-memes', 'bot spam', silent=True)  # also works in DM
 def cleverbot(message,input):
     global states
     state_id = str(message.get_user_id()) + str(message.get_channel_name())  # each user/channel combo has unique state
