@@ -61,7 +61,7 @@ def allowed_users(*allowed_users_list):
     return plugin
 
 
-def allowed_channels(*allowed_channels_list, silent=False):
+def allowed_channels(*allowed_channels_list):
     def plugin(func):
         @wraps(func)
         def wrapper(message, *args, **kw):
@@ -69,8 +69,6 @@ def allowed_channels(*allowed_channels_list, silent=False):
             disp_name = message.get_channel_display_name()
             url_name = message.get_channel_name()
             is_direct_message = message.is_direct_message()
-            if silent:
-                return
             if (not is_direct_message) and (not {disp_name, url_name} & set(allowed_channels_list)):
                 return message.reply(
                     "`This plugin only allowed in these channels:{}`"
